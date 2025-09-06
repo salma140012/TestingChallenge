@@ -9,10 +9,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.io.File;
 
@@ -21,7 +18,7 @@ public class baseTest {
     protected WebDriver driver;
 
     @Parameters("browser")
-    @BeforeMethod
+    @BeforeClass
     public void setup(@Optional("chrome")String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
@@ -38,20 +35,11 @@ public class baseTest {
         }
 
         else if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().driverVersion("0.34.0").setup(); // use latest compatible version
             FirefoxOptions options = new FirefoxOptions();
-
-            // Replace this with YOUR actual profile path
-            FirefoxProfile profile = new FirefoxProfile(
-                    new File("C:\\Users\\dell\\AppData\\Local\\Mozilla\\Firefox\\Profiles")
-            );
-
-            options.setProfile(profile);
-
-            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver(options);
+        }  else if (browser.equalsIgnoreCase("edge")) {
 
-        } else if (browser.equalsIgnoreCase("edge")) {
-            // ✅ Use manually downloaded EdgeDriver
             System.setProperty("webdriver.edge.driver", "C:\\Drivers\\msedgedriver.exe");
             EdgeOptions options = new EdgeOptions();
             driver = new EdgeDriver(options);
@@ -64,7 +52,7 @@ public class baseTest {
         driver.manage().window().maximize();
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();

@@ -54,7 +54,7 @@ public class BingeResultPage extends basePage {
         return driver.findElements(searchResultsLocator).size();
     }
     public void waitForResultsToLoad() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(searchResults));
     }
 

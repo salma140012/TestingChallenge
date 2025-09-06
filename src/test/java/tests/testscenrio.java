@@ -9,9 +9,12 @@ import java.util.Map;
 
 public class testscenrio extends baseTest {
 
-    @Test
-    public void testVodafoneSearchFlow() {
-        // Read data from CSV
+    private BingeResultPage bingPage;
+    private int page2Results;
+    private int page3Results;
+
+    @Test(priority = 1)
+    public void validateRelatedSearches() {
         String filePath = "src/test/resources/testData.csv";
         Map<String, String> testData = DataReader.getTestData(filePath, "VodafoneSearch");
 
@@ -19,36 +22,33 @@ public class testscenrio extends baseTest {
         String searchTerm = testData.get("searchTerm");
         int expectedSections = Integer.parseInt(testData.get("expectedSections"));
 
-        // Create Page Object
-        BingeResultPage bingPage = new BingeResultPage(driver);
+        bingPage = new BingeResultPage(driver);
 
-        // Step 1: Open Bing
         bingPage.openBing(baseUrl);
-
-        // Step 2: Perform Search
         bingPage.search(searchTerm);
 
-        // Step 3: Validate related searches
         try {
             boolean isValid = bingPage.validateRelatedSearches(searchTerm, expectedSections);
             Assert.assertTrue(isValid, "❌ Related searches validation failed!");
             System.out.println("✅ Related searches validation passed!");
         } catch (AssertionError e) {
             System.out.println("❌ Related searches validation failed: " + e.getMessage());
-            throw e; // rethrow so TestNG marks test as failed
+            throw e;
         }
+    }
 
-        // Step 4: Count results on page 2
+    @Test(priority = 2, dependsOnMethods = "validateRelatedSearches")
+    public void validatePageResultsCount() {
         bingPage.goToNextPage();
         bingPage.waitForResultsToLoad();
-        int page2Results = bingPage.countResults();
+        page2Results = bingPage.countResults();
+        System.out.println("Page 2 results count: " + page2Results);
 
-        // Step 5: Count results on page 3
         bingPage.goToNextPage();
         bingPage.waitForResultsToLoad();
-        int page3Results = bingPage.countResults();
+        page3Results = bingPage.countResults();
+        System.out.println("Page 3 results count: " + page3Results);
 
-        // Step 6.1: Assert pages have results
         try {
             Assert.assertTrue(page2Results > 0 && page3Results > 0,
                     "❌ Pages should have results!");
@@ -58,9 +58,6 @@ public class testscenrio extends baseTest {
             throw e;
         }
 
-
-
-        // Step 6.2: Assert page2 == page3
         try {
             Assert.assertEquals(page2Results, page3Results,
                     "❌ Page 2 and Page 3 results count mismatch!");
