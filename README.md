@@ -1,42 +1,44 @@
 Goal: Automate Bing search validation across multiple browsers with robust reporting .
 
 1️⃣ Components
-+--------------------+
-|   TestNG Suite     | <-- Reads testng.xml, sets up cross-browser tests
-+--------------------+
-            |
-            v
-+--------------------+
-|    baseTest.java   | <-- Initializes WebDriver (Chrome, Firefox, Edge)
-+--------------------+
-            |
-            v
-+-----------------------------+
-|   Page Classes (POM)        |
-|-----------------------------|
-| basePage.java               | <-- Common actions (click, type, wait)
-| BingeMainPage.java          | <-- Bing main page actions
-| BingeResultPage.java        | <-- Search result actions
-+-----------------------------+
-            |
-            v
-+-----------------------------+
-|      Utilities              |
-|-----------------------------|
-| DataReader.java / data.java | <-- Reads CSV test data
-| ScreenshotUtil.java         | <-- Captures screenshots
-| webDriverFactory.java       | <-- Creates browser drivers
-| ReportManager.java          | <-- Configures ExtentReports
-+-----------------------------+
-            |
-            v
-+-----------------------------+
-|       Listener              |
-|-----------------------------|
-| TestListener.java           | <-- Monitors test execution
-|                             | Captures failures & screenshots
-|                             | Updates ExtentReports
-+-----------------------------+
+
+            +--------------------+
+            |   TestNG Suite     | <-- Reads testng.xml, sets up cross-browser tests
+            +--------------------+
+                        |
+                        v
+            +--------------------+
+            |    baseTest.java   | <-- Initializes WebDriver (Chrome, Firefox, Edge)
+            +--------------------+
+                        |
+                        v
+            +-----------------------------+
+            |   Page Classes (POM)        |
+            |-----------------------------|
+            | basePage.java               | <-- Common actions (click, type, wait)
+            | BingeMainPage.java          | <-- Bing main page actions
+            | BingeResultPage.java        | <-- Search result actions
+            +-----------------------------+
+                        |
+                        v
+            +-----------------------------+
+            |      Utilities              |
+            |-----------------------------|
+            | DataReader.java / data.java | <-- Reads CSV test data
+            | ScreenshotUtil.java         | <-- Captures screenshots
+            | webDriverFactory.java       | <-- Creates browser drivers
+            | ReportManager.java          | <-- Configures ExtentReports
+            +-----------------------------+
+                        |
+                        v
+            +-----------------------------+
+            |       Listener              |
+            |-----------------------------|
+            | TestListener.java           | <-- Monitors test execution
+            |                             | Captures failures & screenshots
+            |                             | Updates ExtentReports
+            +-----------------------------+
+
 
 2️⃣ Features
 
@@ -47,8 +49,6 @@ CSV-driven tests: Easy to add new scenarios
 Page Object Model (POM): Clean separation of page actions
 
 Robust waits: Explicit waits to handle dynamic content
-
-Screenshot capture: Automatic on test failure
 
 HTML reporting: ExtentReports with embedded screenshots
 
@@ -83,54 +83,29 @@ ReportManager / ExtentReports generates a detailed HTML report.
 Technologies used: Java, Selenium WebDriver, TestNG, ExtentReports, Apache Commons CSV
 Supported browsers: Chrome, Firefox, Edge
 
-3. Project Structure
-   
-src/
- ├─ main/java/org/example/Pages/
- │    ├─ basePage.java
- │    ├─ BingeMainPage.java
- │    └─ BingeResultPage.java
- ├─ main/java/org/example/utils/
- │    ├─ DataReader.java
- │    ├─ data.java
- │    ├─ ScreenshotUtil.java
- │    ├─ webDriverFactory.java
- │    └─ ReportManager.java
- ├─ test/java/tests/
- │    ├─ baseTest.java
- │    └─ testscenrio.java
- └─ testng.xml
-test-output/
- ├─ reports/
- └─ screenshots/
-resources/
- └─ testData.csv
-Listener/
- └─ TestListener.java
-
 5. Page Classes
 
-basePage.java ==> Handles WebDriver actions like click, type, navigation, waits Base class for all page objects
+            basePage.java ==> Handles WebDriver actions like click, type, navigation, waits Base class for all page objects
 
-BingeMainPage.java ==> Represents Bing main page Actions: navigate to page, perform search
+            BingeMainPage.java ==> Represents Bing main page Actions: navigate to page, perform search
 
-BingeResultPage.java ==> Represents Bing search results page Actions: search, validate related searches, count results, navigate pages
+            BingeResultPage.java ==> Represents Bing search results page Actions: search, validate related searches, count results, navigate pages
 
 4. Utilities
 
-DataReader.java / data.java ==> Reads test data from CSV files Returns maps of key-value pairs for test scenarios
+            DataReader.java / data.java ==> Reads test data from CSV files Returns maps of key-value pairs for test scenarios
 
-webDriverFactory.java ==> Creates WebDriver instances for Chrome, Firefox, Edge Supports headless mode
+            webDriverFactory.java ==> Creates WebDriver instances for Chrome, Firefox, Edge Supports headless mode
 
-ReportManager.java ==>Configures ExtentReports Generates HTML execution report
+            ReportManager.java ==>Configures ExtentReports Generates HTML execution report
 
 5. Test Base
 
-baseTest.java ==> Sets up WebDriver based on browser parameter Maximizes window and manages tearDown
+            baseTest.java ==> Sets up WebDriver based on browser parameter Maximizes window and manages tearDown
 
 6. Listeners
 
-TestListener.java ==> Implements ITestListener for TestNG Integrates ExtentReports Logs test start, success, failure, skip
+            TestListener.java ==> Implements ITestListener for TestNG Integrates ExtentReports Logs test start, success, failure, skip
 
 7. Test Scenarios
 
@@ -138,29 +113,29 @@ testscenrio.java ==> Reads test data from CSV Executes Bing search validation Va
 
 8. TestNG Configuration
 
-testng.xml ==> Cross-browser suite Registers listener Defines Chrome, Firefox, Edge tests
+            testng.xml ==> Cross-browser suite Registers listener Defines Chrome, Firefox, Edge tests
 
 9. Test Data
 
-testData.csv ==> Columns: testName, baseUrl, searchTerm, expectedSections Each row is a separate test scenario
+            testData.csv ==> Columns: testName, baseUrl, searchTerm, expectedSections Each row is a separate test scenario
 
 10. Execution Workflow
 
--TestNG reads testng.xml and initializes the suite.
+            -TestNG reads testng.xml and initializes the suite.
 
--baseTest sets up WebDriver for each browser.
+            -baseTest sets up WebDriver for each browser.
 
--Tests in testscenrio execute:
+            -Tests in testscenrio execute:
 
-1)Open Bing
+                        1)Open Bing
 
-2)Perform search
+                        2)Perform search
 
-3)Validate related searches
+                        3)Validate related searches
 
-4)Validate page results count
+                        4)Validate page results count
 
-5)ExtentReports generates HTML report.
+                        5)ExtentReports generates HTML report.
 
 
 
