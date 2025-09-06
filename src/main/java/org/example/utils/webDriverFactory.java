@@ -9,8 +9,17 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+/**
+ * Factory class to create WebDriver instances for different browsers.
+ */
 
 public class webDriverFactory {
+    /**
+     * Creates a WebDriver instance based on the specified browser.
+     * @param browser Browser name ("chrome", "firefox", "edge")
+     * @param headless Whether to run the browser in headless mode
+     * @return WebDriver instance
+     */
     public static WebDriver createDriver(String browser, boolean headless){
         WebDriver driver = null;
 

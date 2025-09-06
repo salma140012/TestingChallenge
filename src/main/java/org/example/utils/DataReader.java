@@ -7,8 +7,15 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
+/**
+ * Utility class to read CSV test data (alternative version).
+ */
 public class DataReader {
+    /**
+     * Reads all test data from a CSV file.
+     * @param filePath Path to CSV file
+     * @return List of maps, each representing a test case row
+     */
 
     public static List<Map<String, String>> readCSVData(String filePath) {
         List<Map<String, String>> testData = new ArrayList<>();
@@ -30,6 +37,12 @@ public class DataReader {
 
         return testData;
     }
+    /**
+     * Gets test data for a specific test case by name.
+     * @param filePath Path to CSV file
+     * @param testName Name of the test case
+     * @return Map containing key-value pairs for the test case
+     */
 
     public static Map<String, String> getTestData(String filePath, String testName) {
         List<Map<String, String>> allData = readCSVData(filePath);

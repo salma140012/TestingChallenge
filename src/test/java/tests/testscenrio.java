@@ -6,13 +6,18 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Map;
+/**
+ * Test scenario class to validate Bing search functionality.
+ */
 
 public class testscenrio extends baseTest {
 
     private BingeResultPage bingPage;
     private int page2Results;
     private int page3Results;
-
+    /**
+     * Validates the related searches section on Bing search results.
+     */
     @Test(priority = 1)
     public void validateRelatedSearches() {
         String filePath = "src/test/resources/testData.csv";
@@ -36,7 +41,9 @@ public class testscenrio extends baseTest {
             throw e;
         }
     }
-
+    /**
+     * Validates the results count on page 2 and page 3 of Bing search results.
+     */
     @Test(priority = 2, dependsOnMethods = "validateRelatedSearches")
     public void validatePageResultsCount() {
         bingPage.goToNextPage();

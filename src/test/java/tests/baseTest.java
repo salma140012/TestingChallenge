@@ -12,11 +12,16 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.*;
 
 import java.io.File;
-
+/**
+ * Base test class to setup and teardown WebDriver instances for all tests.
+ */
 public class baseTest {
-
+    /** WebDriver instance used in test classes. */
     protected WebDriver driver;
-
+    /**
+     * Initializes the WebDriver based on browser parameter.
+     * @param browser Browser name (default is "chrome")
+     */
     @Parameters("browser")
     @BeforeClass
     public void setup(@Optional("chrome")String browser) {
@@ -51,7 +56,7 @@ public class baseTest {
 
         driver.manage().window().maximize();
     }
-
+    /** Quits WebDriver after all tests are done. */
     @AfterClass
     public void tearDown() {
         if (driver != null) {

@@ -19,7 +19,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ * TestNG listener for logging test execution and capturing screenshots on failure.
+ */
 public class TestListener implements ITestListener {
 
     private static ExtentReports extent;
@@ -27,6 +29,9 @@ public class TestListener implements ITestListener {
     private static final String REPORTS_DIR = "test-output/reports";
     private static final String SCREENSHOT_DIR = "test-output/screenshots";
 
+    /**
+     * Returns a  ExtentReports instance.
+     */
     private ExtentReports getExtent() {
         if (extent == null) {
             try {
@@ -47,7 +52,9 @@ public class TestListener implements ITestListener {
         }
         return extent;
     }
-
+    /**
+     * Captures a screenshot and returns the file path.
+     */
     private String takeScreenshot(WebDriver driver, String testName) {
         try {
             Path dir = Paths.get(SCREENSHOT_DIR);

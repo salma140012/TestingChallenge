@@ -7,12 +7,21 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+/**
+ * Manages the creation of ExtentReports for test execution reporting.
+ */
 
 public class ReportManager {
+    /** ExtentReports instance . */
     private static ExtentReports extent;
+    /** Directory for storing reports. */
     private static final String REPORTS_DIR = "test-output/reports";
+    /** Report HTML file path. */
     private static final String REPORT_FILE = REPORTS_DIR + "/ExecutionReport.html";
-
+    /**
+     * Returns a  ExtentReports instance.
+     * @return ExtentReports instance
+     */
     public synchronized static ExtentReports getInstance() {
         if (extent == null) {
             try {

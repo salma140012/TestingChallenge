@@ -9,16 +9,15 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * DataReader handles reading test data from CSV files.
- * Each row in the CSV represents a test case.
+ * Utility class to read CSV test data.
+ * Each row represents a test case.
  */
 public class data {
 
     /**
      * Reads all test data from a CSV file.
-     *
      * @param filePath Path to CSV file
-     * @return List of maps where each map represents one row (test case)
+     * @return List of maps, each map represents one test case row
      */
     public static List<Map<String, String>> readCSVData(String filePath) {
         List<Map<String, String>> testData = new ArrayList<>();
@@ -42,10 +41,9 @@ public class data {
     }
 
     /**
-     * Gets test data for a specific test case identified by testName.
-     *
+     * Retrieves test data for a specific test case identified by testName.
      * @param filePath Path to CSV file
-     * @param testName Name of the test case (must be a column value under "testName")
+     * @param testName Name of the test case (column value under "testName")
      * @return Map containing key-value pairs for that test case
      */
     public static Map<String, String> getTestData(String filePath, String testName) {
