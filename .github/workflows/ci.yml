@@ -23,9 +23,4 @@ jobs:
       - name: Build with Maven
         run: mvn clean install -DskipTests=false
 
-      - name: Upload Extent Report
-        if: always() # ensures report uploads even if tests fail
-        uses: actions/upload-artifact@v4
-        with:
-          name: ExtentReport
-          path: test-output/CICD_Report
+
