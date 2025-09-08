@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ExtentReport
-          path: test-output/CICD_Report/ExtentReport.html
+          path: test-output/CICD_Report
