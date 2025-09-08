@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Execution Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Sep 8, 2025 08:41:31 PM</span></a>
+<a href="#"><span class="badge badge-primary">Sep 8, 2025 09:21:26 PM</span></a>
 </li>
 </ul>
 </div>
@@ -68,6 +68,7 @@
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
 <a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -75,25 +76,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">validateRelatedSearches</p>
             <p class="text-sm">
-              <span>8:41:31 PM</span> / <span>00:00:06:479</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>9:21:26 PM</span> / <span>00:00:29:447</span>
+              <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">validateRelatedSearches</h5>
-<span class='badge badge-success'>09.08.2025 8:41:31 PM</span>
-<span class='badge badge-danger'>09.08.2025 8:41:37 PM</span>
-<span class='badge badge-default'>00:00:06:479</span>
+<h5 class="test-status text-fail">validateRelatedSearches</h5>
+<span class='badge badge-success'>09.08.2025 9:21:26 PM</span>
+<span class='badge badge-danger'>09.08.2025 9:21:56 PM</span>
+<span class='badge badge-default'>00:00:29:447</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -106,16 +107,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:41:31 PM</td>
+        <td>9:21:26 PM</td>
         <td>
           Test started
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>8:41:37 PM</td>
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>9:21:56 PM</td>
         <td>
-          Test passed
+          Test failed: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.cssSelector: li.b_algo (tried for 25 second(s) with 500 milliseconds interval)
+Build info: version: '4.25.0', revision: '8a8aea2337'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 139.0.7258.66, chrome: {chromedriverVersion: 139.0.7258.154 (9e0d6b2b47f..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57469}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57469/devtoo..., se:cdpVersion: 139.0.7258.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a2031b097bdaaefe0097389d2dc162a2 (WebDriver not found)
         </td>
       </tr>
   </tbody>
@@ -123,25 +129,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="2"
+        <li class="test-item"  status="skip" test-id="2"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">validateRelatedSearches</p>
             <p class="text-sm">
-              <span>8:41:31 PM</span> / <span>00:00:15:938</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>9:21:27 PM</span> / <span>00:00:00:001</span>
+              <span class="badge skip-bg log float-right">Skip</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">validateRelatedSearches</h5>
-<span class='badge badge-success'>09.08.2025 8:41:31 PM</span>
-<span class='badge badge-danger'>09.08.2025 8:41:47 PM</span>
-<span class='badge badge-default'>00:00:15:938</span>
+<h5 class="test-status text-skip">validateRelatedSearches</h5>
+<span class='badge badge-success'>09.08.2025 9:21:27 PM</span>
+<span class='badge badge-danger'>09.08.2025 9:21:27 PM</span>
+<span class='badge badge-default'>00:00:00:001</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -154,16 +160,16 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:41:31 PM</td>
+        <td>9:21:27 PM</td>
         <td>
           Test started
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>8:41:47 PM</td>
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>9:21:27 PM</td>
         <td>
-          Test passed
+          Test skipped
         </td>
       </tr>
   </tbody>
@@ -171,25 +177,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="3"
+        <li class="test-item"  status="skip" test-id="3"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">validateRelatedSearches</p>
+            <p class="name">validatePageResultsCount</p>
             <p class="text-sm">
-              <span>8:41:33 PM</span> / <span>00:00:06:873</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>9:21:27 PM</span> / <span>00:00:00:001</span>
+              <span class="badge skip-bg log float-right">Skip</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">validateRelatedSearches</h5>
-<span class='badge badge-success'>09.08.2025 8:41:33 PM</span>
-<span class='badge badge-danger'>09.08.2025 8:41:40 PM</span>
-<span class='badge badge-default'>00:00:06:873</span>
+<h5 class="test-status text-skip">validatePageResultsCount</h5>
+<span class='badge badge-success'>09.08.2025 9:21:27 PM</span>
+<span class='badge badge-danger'>09.08.2025 9:21:27 PM</span>
+<span class='badge badge-default'>00:00:00:001</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -202,16 +208,16 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:41:33 PM</td>
+        <td>9:21:27 PM</td>
         <td>
           Test started
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log pass-bg">Pass</span></td>
-        <td>8:41:40 PM</td>
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>9:21:27 PM</td>
         <td>
-          Test passed
+          Test skipped
         </td>
       </tr>
   </tbody>
@@ -219,25 +225,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="4"
+        <li class="test-item"  status="pass" test-id="4"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">validatePageResultsCount</p>
+            <p class="name">validateRelatedSearches</p>
             <p class="text-sm">
-              <span>8:41:37 PM</span> / <span>00:00:12:389</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>9:21:28 PM</span> / <span>00:00:09:047</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">validatePageResultsCount</h5>
-<span class='badge badge-success'>09.08.2025 8:41:37 PM</span>
-<span class='badge badge-danger'>09.08.2025 8:41:50 PM</span>
-<span class='badge badge-default'>00:00:12:389</span>
+<h5 class="test-status text-pass">validateRelatedSearches</h5>
+<span class='badge badge-success'>09.08.2025 9:21:28 PM</span>
+<span class='badge badge-danger'>09.08.2025 9:21:38 PM</span>
+<span class='badge badge-default'>00:00:09:047</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -250,16 +256,16 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:41:37 PM</td>
+        <td>9:21:28 PM</td>
         <td>
           Test started
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>8:41:50 PM</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>9:21:38 PM</td>
         <td>
-          Test failed: java.lang.AssertionError: ❌ Page 2 and Page 3 results count mismatch! expected [10] but found [9] (WebDriver not found)
+          Test passed
         </td>
       </tr>
   </tbody>
@@ -274,7 +280,7 @@
           <div class="test-detail">
             <p class="name">validatePageResultsCount</p>
             <p class="text-sm">
-              <span>8:41:40 PM</span> / <span>00:00:26:573</span>
+              <span>9:21:38 PM</span> / <span>00:00:41:902</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -283,9 +289,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">validatePageResultsCount</h5>
-<span class='badge badge-success'>09.08.2025 8:41:40 PM</span>
-<span class='badge badge-danger'>09.08.2025 8:42:07 PM</span>
-<span class='badge badge-default'>00:00:26:573</span>
+<span class='badge badge-success'>09.08.2025 9:21:38 PM</span>
+<span class='badge badge-danger'>09.08.2025 9:22:19 PM</span>
+<span class='badge badge-default'>00:00:41:902</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -298,21 +304,21 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:41:40 PM</td>
+        <td>9:21:38 PM</td>
         <td>
           Test started
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>8:42:07 PM</td>
+        <td>9:22:19 PM</td>
         <td>
           Test failed: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.cssSelector: li.b_algo (tried for 25 second(s) with 500 milliseconds interval)
 Build info: version: '4.25.0', revision: '8a8aea2337'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 142.0.1, moz:accessibilityChecks: false, moz:buildID: 20250827004350, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 31464, moz:profile: C:\Users\User\AppData\Local..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: 453c744e-cdde-4ac3-a282-23e0993db71d (WebDriver not found)
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 142.0.1, moz:accessibilityChecks: false, moz:buildID: 20250827004350, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 10720, moz:profile: C:\Users\User\AppData\Local..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: c922412c-0a10-4131-acc9-0f880de7388b (WebDriver not found)
         </td>
       </tr>
   </tbody>
@@ -320,25 +326,25 @@ Session ID: 453c744e-cdde-4ac3-a282-23e0993db71d (WebDriver not found)
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="6"
+        <li class="test-item"  status="skip" test-id="6"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">validatePageResultsCount</p>
             <p class="text-sm">
-              <span>8:41:47 PM</span> / <span>00:00:15:322</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>9:21:56 PM</span> / <span>00:00:00:000</span>
+              <span class="badge skip-bg log float-right">Skip</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">validatePageResultsCount</h5>
-<span class='badge badge-success'>09.08.2025 8:41:47 PM</span>
-<span class='badge badge-danger'>09.08.2025 8:42:02 PM</span>
-<span class='badge badge-default'>00:00:15:322</span>
+<h5 class="test-status text-skip">validatePageResultsCount</h5>
+<span class='badge badge-success'>09.08.2025 9:21:56 PM</span>
+<span class='badge badge-danger'>09.08.2025 9:21:56 PM</span>
+<span class='badge badge-default'>00:00:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -351,24 +357,16 @@ Session ID: 453c744e-cdde-4ac3-a282-23e0993db71d (WebDriver not found)
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>8:41:47 PM</td>
+        <td>9:21:56 PM</td>
         <td>
           Test started
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>8:42:02 PM</td>
+        <td><span class="badge log skip-bg">Skip</span></td>
+        <td>9:21:56 PM</td>
         <td>
-          Test failed: org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a class="sb_pagN sb_pagN_bp b_widePag sb_bp " aria-label="Next page" title="Next page" href="/search?q=Vodafone&amp;sp=-1&amp;lq=0&amp;pq=&amp;sc=0-0&amp;qs=n&amp;sk=&amp;cvid=AA0DB964D4734F2D9AFB5DCAFD25E03F&amp;FPIG=30A4AF90AAE64753BD709A0683103013&amp;FPIG=EA1F790BFC5A454884C8FC1B4A09486A&amp;first=11&amp;FORM=PORE" h="ID=SERP,5313.1">...</a> is not clickable at point (501, 672). Other element would receive the click: <div class="banner">...</div>
-  (Session info: MicrosoftEdge=140.0.3485.54)
-Build info: version: '4.25.0', revision: '8a8aea2337'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [50b9c363dfad21d1eb4951af60286210, clickElement {id=f.FF64AB2AD1E3DB95BCD210F81426B95A.d.18C86FF29A5B90C740139218C850C559.e.81}]
-Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 140.0.3485.54, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:55074}, msedge: {msedgedriverVersion: 140.0.3485.54 (3cc379a8a5fb..., userDataDir: C:\Users\User\AppData\Local...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55074/devtoo..., se:cdpVersion: 140.0.3485.54, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[EdgeDriver: MicrosoftEdge on windows (50b9c363dfad21d1eb4951af60286210)] -> css selector: a[aria-label='Next page']]
-Session ID: 50b9c363dfad21d1eb4951af60286210 (WebDriver not found)
+          Test skipped
         </td>
       </tr>
   </tbody>
@@ -390,25 +388,25 @@ Session ID: 50b9c363dfad21d1eb4951af60286210 (WebDriver not found)
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Sep 8, 2025 08:41:31 PM</h3>
+<h3>Sep 8, 2025 09:21:26 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Sep 8, 2025 08:42:09 PM</h3>
+<h3>Sep 8, 2025 09:22:22 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>3</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>3</h3>
+<h3>2</h3>
 </div></div>
 </div>
 </div>
@@ -424,13 +422,13 @@ Session ID: 50b9c363dfad21d1eb4951af60286210 (WebDriver not found)
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='50%'>
-<b>3</b> tests passed
+<div><small data-tooltip='16%'>
+<b>1</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='50%'><b>3</b> tests failed,
-<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+<small data-tooltip='33%'><b>2</b> tests failed,
+<b>3</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
 </div>
@@ -447,10 +445,10 @@ Session ID: 50b9c363dfad21d1eb4951af60286210 (WebDriver not found)
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='25%'><b>3</b> events passed</small></div>
+<div><small data-tooltip='8%'><b>1</b> events passed</small></div>
 <div>
-<small data-tooltip='25%'><b>3</b> events failed,
-<b data-tooltip='%'>6</b> others
+<small data-tooltip='16%'><b>2</b> events failed,
+<b data-tooltip='%'>9</b> others
 </small>
 </div>
 </div>
@@ -466,7 +464,7 @@ Session ID: 50b9c363dfad21d1eb4951af60286210 (WebDriver not found)
 </div></div>
 <script>
 var timeline = {
-"validateRelatedSearches":6.479,"validateRelatedSearches":15.938,"validateRelatedSearches":6.873,"validatePageResultsCount":12.389,"validatePageResultsCount":26.573,"validatePageResultsCount":15.322
+"validateRelatedSearches":29.447,"validateRelatedSearches":0.001,"validatePageResultsCount":0.001,"validateRelatedSearches":9.047,"validatePageResultsCount":41.902,"validatePageResultsCount":0
 };
 </script>
 <div class="row">
@@ -493,10 +491,10 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 3,
-failParent: 3,
+passParent: 1,
+failParent: 2,
 warningParent: 0,
-skipParent: 0,
+skipParent: 3,
 childCount: 5,
 passChild: 0,
 failChild: 0,
@@ -510,10 +508,10 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 3,
-failEvents: 3,
+passEvents: 1,
+failEvents: 2,
 warningEvents: 0,
-skipEvents: 0,
+skipEvents: 3,
 infoEvents: 6
 };
 </script>        </div>
