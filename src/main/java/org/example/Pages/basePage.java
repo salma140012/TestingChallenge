@@ -59,11 +59,11 @@ public abstract class basePage {
         driver.get(url);
     }
     /**
-     * Simple wait for page load (can be replaced by JavaScript wait).
+     * Simple wait for page load
      */
     public void waitForPageLoad() {
         try {
-            Thread.sleep(2000); // simple wait, replaceable with JS wait
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

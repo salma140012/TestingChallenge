@@ -9,8 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class BingeMainPage extends basePage
 {
 
-    /** WebDriver instance (redundant, can use basePage.driver) */
-    private WebDriver driver;
+
     /** Locator for the search bar. */
     private By  searchBarLocator = By.id("sb_form_q");
     /** Locator for the search button. */
@@ -22,13 +21,7 @@ public class BingeMainPage extends basePage
     public BingeMainPage(WebDriver driver){
         super(driver);
     }
-    /**
-     * Navigates to the Bing main page.
-     * @param url URL of the main page
-     */
-    public void naiviagteMainPage(String url){
-        driver.get(url);
-    }
+
     /**
      * Performs a search with the given text.
      * @param text Search term

@@ -1,36 +1,27 @@
 package Listener;
 
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 /**
- * TestNG listener for logging test execution and capturing screenshots on failure.
+ * TestNG listener for logging test execution (without screenshots).
  */
 public class TestListener implements ITestListener {
 
     private static ExtentReports extent;
     private static ThreadLocal<ExtentTest> testThread = new ThreadLocal<>();
     private static final String REPORTS_DIR = "test-output/reports";
-    private static final String SCREENSHOT_DIR = "test-output/screenshots";
 
     /**
-     * Returns a  ExtentReports instance.
+     * Returns an ExtentReports instance.
      */
     private ExtentReports getExtent() {
         if (extent == null) {
@@ -52,25 +43,6 @@ public class TestListener implements ITestListener {
         }
         return extent;
     }
-    /**
-     * Captures a screenshot and returns the file path.
-     */
-    private String takeScreenshot(WebDriver driver, String testName) {
-        try {
-            Path dir = Paths.get(SCREENSHOT_DIR);
-            if (!Files.exists(dir)) Files.createDirectories(dir);
-
-            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String filename = testName + "_" + timestamp + ".png";
-            File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            File destFile = new File(dir.toFile(), filename);
-            FileUtils.copyFile(srcFile, destFile);
-            return destFile.getAbsolutePath();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -88,26 +60,7 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         Throwable throwable = result.getThrowable();
         String errorMsg = throwable != null ? throwable.toString() : "";
-
-        WebDriver driver = null;
-        try {
-            Field f = result.getInstance().getClass().getDeclaredField("driver");
-            f.setAccessible(true);
-            driver = (WebDriver) f.get(result.getInstance());
-        } catch (Exception ignored) {}
-
-        if (driver != null) {
-            String screenshotPath = takeScreenshot(driver, result.getMethod().getMethodName());
-            try {
-                testThread.get()
-                        .fail("Test failed: " + errorMsg)
-                        .addScreenCaptureFromPath(screenshotPath); // embeds screenshot in report
-            } catch (Exception e) {
-                testThread.get().fail("Test failed: " + errorMsg + " (screenshot attach failed)");
-            }
-        } else {
-            testThread.get().fail("Test failed: " + errorMsg + " (WebDriver not found)");
-        }
+        testThread.get().fail("Test failed: " + errorMsg);
     }
 
     @Override

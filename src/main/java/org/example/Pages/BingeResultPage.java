@@ -66,13 +66,17 @@ public class BingeResultPage extends basePage {
 
         List<WebElement> items = driver.findElements(relatedSearchesItemsLocator);
 
-        // Debugging - print out what Bing actually returned
         System.out.println("Related searches found:");
         items.forEach(i -> System.out.println(" - " + i.getText()));
 
-        // Validation: at least expectedSections
-        return items.size() >= expectedSections;
+
+        boolean hasEnoughSections = items.size() >= expectedSections;
+        boolean allContainTerm = items.stream()
+                .allMatch(i -> i.getText().toLowerCase().contains(term.toLowerCase()));
+
+        return hasEnoughSections && allContainTerm;
     }
+
     /**
      * Counts the number of search results.
      * @return Number of results

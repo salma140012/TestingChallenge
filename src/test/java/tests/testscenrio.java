@@ -34,13 +34,16 @@ public class testscenrio extends baseTest {
 
         try {
             boolean isValid = bingPage.validateRelatedSearches(searchTerm, expectedSections);
-            Assert.assertTrue(isValid, "❌ Related searches validation failed!");
+            Assert.assertTrue(isValid,
+                    "❌ Validation failed: Either less than " + expectedSections +
+                            " related searches, or not all contain '" + searchTerm + "'");
             System.out.println("✅ Related searches validation passed!");
         } catch (AssertionError e) {
             System.out.println("❌ Related searches validation failed: " + e.getMessage());
             throw e;
         }
     }
+
     /**
      * Validates the results count on page 2 and page 3 of Bing search results.
      */
